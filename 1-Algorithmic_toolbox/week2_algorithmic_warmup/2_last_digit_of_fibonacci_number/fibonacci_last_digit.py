@@ -1,19 +1,13 @@
 # Uses python3
-import sys
+def calc_fib(n):
+    lastTwo = [0,1] #first two numbers are initialized
+    counter = 3 #3rd fibonacci number 
+    while counter <= n:
+        nextFib = (lastTwo[0] + lastTwo[1] ) % 10
+        lastTwo[0] = lastTwo[1] % 10
+        lastTwo[1] = nextFib
+        counter += 1
+    return lastTwo[1] if n > 1 else lastTwo[0]  #ternary operator
 
-def get_fibonacci_last_digit_naive(n):
-    if n <= 1:
-        return n
-
-    previous = 0
-    current  = 1
-
-    for _ in range(n - 1):
-        previous, current = current, previous + current
-
-    return current % 10
-
-if __name__ == '__main__':
-    input = sys.stdin.read()
-    n = int(input)
-    print(get_fibonacci_last_digit_naive(n))
+n = int(input())
+print(calc_fib(n+1))
