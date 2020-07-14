@@ -2,9 +2,16 @@
 import sys
 
 def optimal_summands(n):
-    summands = []
+    summands = [1]
     #write your code here
-    return summands
+    i=1
+    while True:
+        if n - sum(summands) > summands[i-1]:
+            summands.append(i+1)
+        elif n - sum(summands) <= summands[i-1]:
+            summands[i-1] = summands[i-1] + n - sum(summands)
+            return summands
+        i +=1
 
 if __name__ == '__main__':
     input = sys.stdin.read()
