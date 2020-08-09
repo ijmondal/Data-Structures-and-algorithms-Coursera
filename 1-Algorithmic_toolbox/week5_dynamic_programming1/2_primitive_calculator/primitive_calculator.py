@@ -20,7 +20,7 @@ def optimal_sequence(n):
         elif (n%3 == 0 and (a[n//3] == a[n]-1)):
             n = n//3
     sequence.append(1)
-    print(a)
+    
     return reversed(sequence)
     
             
